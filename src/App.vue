@@ -1,17 +1,25 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  </head>
+  <body>
+
+    <div id="app" style="height: 400px">
+      <v-map :zoom=13 :center="[47.413220, -1.219482]">
+        <v-tilelayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"></v-tilelayer>
+        <v-marker :lat-lng="[47.413220, -1.219482]"></v-marker>
+      </v-map>
+    </div>
+  </body>
+</html>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
   }
 }
 </script>
