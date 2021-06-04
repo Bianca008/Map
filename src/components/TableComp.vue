@@ -32,7 +32,7 @@ import json from '../response.json'
 table{
     width: 100%;
     background-color: aqua;
-    margin-top: 18%;
+    margin-top: 10%;
 }
 
 td{

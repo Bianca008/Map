@@ -4,7 +4,8 @@
             <map-comp></map-comp>
         </div>
         <div class="column">
-            <table-comp></table-comp>
+            <button v-on:click="loadData">Load data</button>
+            <table-comp :hidden={isVisible} ></table-comp>
         </div>
 </div>
 </template>
@@ -19,6 +20,17 @@ export default {
   components: {
     MapComp,
     TableComp
+  },
+  data(){
+    return {
+      isVisible: false,
+    }
+  },
+  methods:{
+    loadData: function(){
+      this.isVisible = true;  
+      //this.$forceUpdate();
+    }
   }
 }
 </script>
@@ -36,5 +48,10 @@ export default {
 .column{
    float:left;
    width: 50%;
+}
+
+button{
+  margin-top: 9%;
+  background-color: chartreuse;
 }
 </style>
