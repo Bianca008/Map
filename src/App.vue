@@ -1,7 +1,7 @@
 <template>
 <div>
         <div class="column">
-            <map-comp></map-comp>
+            <map-comp :dataToSend="dataTable"></map-comp>
         </div>
         <div class="column">
             <button @click="loadData">Load data</button>
