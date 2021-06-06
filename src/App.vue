@@ -5,7 +5,7 @@
         </div>
         <div class="column">
             <button @click="loadData">Load data</button>
-            <component v-bind:is="currentComponent" dataToSend="dataTable"/>
+            <component v-bind:is="currentComponent" :dataToSend="dataTable"/>
             <!-- <table-comp prop-name="dataTable" @click="loadData"></table-comp> -->
         </div>
 </div>
