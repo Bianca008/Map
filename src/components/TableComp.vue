@@ -8,8 +8,8 @@
             </tr>
             <tr v-bind:dataToSend="dataToSend" v-for="data in dataToSend.features" :key="data.params">
                 <td>{{data.properties.Id}}</td>
-                <td>{{data.geometry.coordinates[0]}}</td>
                 <td>{{data.geometry.coordinates[1]}}</td>
+                <td>{{data.geometry.coordinates[0]}}</td>
             </tr>
         </table>
     </div>
