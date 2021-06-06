@@ -6,7 +6,7 @@
                 <th>Latitude</th>
                 <th>Longitude</th>
             </tr>
-            <tr v-for="data in myJson.features" :key="data.params">
+            <tr v-bind:dataToSend="dataToSend" v-for="data in dataToSend.features" :key="data.params">
                 <td>{{data.properties.Id}}</td>
                 <td>{{data.geometry.coordinates[0]}}</td>
                 <td>{{data.geometry.coordinates[1]}}</td>
@@ -16,13 +16,16 @@
 </template>
 
 <script>
-import json from '../response.json'
+//import json from '../response.json'
 
       export default{
           data(){
               return{
-                  myJson: json
+                  //myJson: json
               }
+          },
+          props: {
+              dataToSend: []
           }
       }
 </script>

@@ -4,8 +4,9 @@
             <map-comp></map-comp>
         </div>
         <div class="column">
-            <button v-on:click="loadData">Load data</button>
-            <table-comp :hidden={isVisible} ></table-comp>
+            <button @click="loadData">Load data</button>
+            <component v-bind:is="currentComponent" dataToSend="dataTable"/>
+            <!-- <table-comp prop-name="dataTable" @click="loadData"></table-comp> -->
         </div>
 </div>
 </template>
@@ -14,6 +15,8 @@
 
 import MapComp from './components/MapComp.vue'
 import TableComp from './components/TableComp.vue'
+import EmptyComp from './components/EmptyComp.vue'
+import axios from 'axios'
 
 export default {
   name: 'App',
@@ -23,14 +26,19 @@ export default {
   },
   data(){
     return {
-      isVisible: false,
+      dataTable: [],
+      currentComponent: EmptyComp
+      //isVisible: false,
     }
   },
   methods:{
     loadData: function(){
-      this.isVisible = true;  
-      //this.$forceUpdate();
+      axios.get('./response.json').then((response)=>{this.dataTable = response.data; console.log(this.dataTable); return response.data;})
+      this.currentComponent = TableComp
     }
+  },
+  props:{
+    dataToSend: []
   }
 }
 </script>
